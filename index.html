@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Web U.E. San José Obrero</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@latest"></script>
+    <style>
+        /* Estilos adicionales para componentes específicos si es necesario */
+        .nav-link {
+            color: white; /* Color de texto para los enlaces de navegación */
+        }
+        .nav-link:hover {
+            color: #f5f5f5; /* Color de texto al pasar el mouse */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-inter">
+    <header class="bg-blue-700 text-white py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md">
+        <div class="logo flex items-center ml-4">
+            <span class="font-semibold text-xl">U.E. San José Obrero</span>
+        </div>
+        <nav class="mr-4">
+            <ul class="flex space-x-4">
+                <li><a href="#inicio" class="nav-link hover:text-gray-200 no-underline">Inicio</a></li>
+                <li><a href="#noticias" class="nav-link hover:text-gray-200 no-underline">Noticias</a></li>
+                <li><a href="#academicos" class="nav-link hover:text-gray-200 no-underline">Académicos</a></li>
+                <li><a href="#rendimiento" class="nav-link hover:text-gray-200 no-underline">Rendimiento</a></li>
+                <li><a href="#Padres" class="nav-link hover:text-gray-200 no-underline">Padres</a></li>
+                <li><a href="#contacto" class="nav-link hover:text-gray-200 no-underline">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="container mx-auto py-8 flex flex-col items-center">
+        <h2 class="text-3xl font-semibold text-blue-800 mb-4">Bienvenido al Portal Web de la U.E. San José Obrero</h2>
+        <p class="text-gray-700 text-lg text-center max-w-2xl">
+            Este portal ha sido desarrollado para fortalecer la comunicación entre la institución,
+            padres de familia y estudiantes, facilitando el acceso a información relevante y
+            promoviendo una participación activa en la comunidad educativa.
+        </p>
+    </section>
+
+    <section id="noticias" class="bg-gray-200 py-8">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-semibold text-blue-800 mb-4 text-center">Últimas Noticias</h2>
+            <div id="lista-noticias" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-gray-800 mb-2">Noticia 1</h3>
+                    <p class="text-gray-600">Descripción de la noticia 1.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-gray-800 mb-2">Noticia 2</h3>
+                    <p class="text-gray-600">Descripción de la noticia 2.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-gray-800 mb-2">Noticia 3</h3>
+                    <p class="text-gray-600">Descripción de la noticia 3.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="academicos" class="container mx-auto py-8">
+        <h2 class="text-2xl font-semibold text-blue-800 mb-4 text-center">Información Académica</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Horarios de Clase</h3>
+                        <p class="text-gray-600">Aquí podrás encontrar los horarios de clase por nivel y especialidad.</p>
+                    </div>
+                    <button onclick="window.location.href='horarios.php'" class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Ver Horarios</button>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Calendario Escolar</h3>
+                        <p class="text-gray-600">Consulta las fechas importantes del año escolar.</p>
+                    </div>
+                    <button onclick="window.location.href='calendario.php'" class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Ver Calendario</button>
+                </div>
+        </div>
+    </section>
+
+    <section id="rendimiento" class="bg-gray-200 py-8">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-semibold text-blue-800 mb-4 text-center">Rendimiento Académico</h2>
+            <div class="bg-white rounded-lg shadow-md p-6 max-w-md mx-auto">
+                <h3 class="font-semibold text-gray-800 mb-2">Consulta de Notas</h3>
+                <p class="text-gray-600">Ingresa el número de RUDE del estudiante para ver sus calificaciones.</p>
+                <form id="form-consulta-notas" class="mt-4">
+                    <div class="mb-4">
+                        <input type="text" id="rude-estudiante" placeholder="Número de RUDE" required
+                               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                    <div class="mb-4">
+                        <label for="trimestre" class="block text-gray-700 text-sm font-bold mb-2">Seleccione Trimestre:</label>
+                        <select id="trimestre" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            <option value="1">1er Trimestre</option>
+                            <option value="2">2do Trimestre</option>
+                            <option value="3">3er Trimestre</option>
+                            <option value="anual">Anual</option>
+                        </select>
+                    </div>
+                    <div class="flex justify-center mt-4">
+                        <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2">
+                            Consultar
+                        </button>
+                        <button type="button" id="boton-borrar" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Borrar
+                        </button>
+                    </div>
+                </form>
+                <div id="resultado-notas" class="mt-4 text-gray-700 font-semibold">
+                </div>
+                <div id="mensaje-error" class="mt-4 text-red-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Padres" class="bg-gray-200 py-8">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-semibold text-blue-800 mb-4 text-center">Información para Padres</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="font-semibold text-gray-800 mb-2">Fichas de Observación</h3>
+                    <p class="text-gray-600">Accede a las fichas de observación de tus hijos.</p>
+                    <div class="mt-4">
+                        <input type="text" id="carnet-identidad" placeholder="Ingrese su CI" required
+                               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2">
+                        <button id="ver-fichas-observacion" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Ver Fichas de Observación
+                        </button>
+                    </div>
+                    <div id="resultado-fichas" class="mt-4 text-gray-700 font-semibold"></div>
+                    <div id="mensaje-error-fichas" class="mt-4 text-red-500"></div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="font-semibold text-gray-800 mb-2">Reuniones</h3>
+                    <p class="text-gray-600">Información sobre las próximas reuniones de padres.</p>
+                    <button onclick="window.location.href='reuniones.php'" class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Ver Reuniones</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="container mx-auto py-8">
+        <h2 class="text-2xl font-semibold text-blue-800 mb-4 text-center">Contacto</h2>
+        <div class="bg-white rounded-lg shadow-md p-6 max-w-md mx-auto">
+            <p class="text-gray-700 mb-2"><strong>Dirección:</strong> San Juan de Yapacaní, Santa Cruz, Bolivia</p>
+            <p class="text-gray-700 mb-2"><strong>Teléfono:</strong> +591 123 45678</p>
+            <p class="text-gray-700"><strong>Email:</strong> info@uesanjoseobrero.edu.bo</p>
+            <button onclick="window.location.href='contacto.php'" class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Contactar</button>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-4 text-center rounded-md">
+        <p>© 2025 Unidad Educativa San José Obrero. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Datos de ejemplo de noticias (normalmente vendrían de una base de datos)
+        const noticias = [
+            { titulo: "Inicio de clases 2025", descripcion: "Este 5 de febrero inician las clases en todos los niveles." },
+            { titulo: "Feria Educativa", descripcion: "La U.E. San José Obrero participará en la feria educativa regional." },
+            { titulo: "Acto de Graduación", descripcion: "El 15 de diciembre se llevará a cabo el acto de graduación de la promoción 2025." },
+        ];
+
+        // Función para insertar noticias en la página
+        function insertarNoticias() {
+            const listaNoticias = document.getElementById("lista-noticias");
+            listaNoticias.innerHTML = ""; // Limpiar contenido anterior
+
+            noticias.forEach(noticia => {
+                const noticiaDiv = document.createElement("div");
+                noticiaDiv.className = "bg-white rounded-lg shadow-md p-4";
+                noticiaDiv.innerHTML = `
+                    <h3 class="font-semibold text-gray-800 mb-2">${noticia.titulo}</h3>
+                    <p class="text-gray-600">${noticia.descripcion}</p>
+                `;
+                listaNoticias.appendChild(noticiaDiv);
+            });
+        }
+
+        // Función para mostrar las noticias al cargar la página
+        window.onload = insertarNoticias;
+
+        // Función para manejar el envío del formulario de consulta de notas
+        document.getElementById('form-consulta-notas').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar que se recargue la página
+
+            const rudeEstudiante = document.getElementById('rude-estudiante').value;
+            const trimestreSeleccionado = document.getElementById('trimestre').value;
+            const resultadoNotas = document.getElementById('resultado-notas');
+            const mensajeError = document.getElementById('mensaje-error');
+
+            // Aquí se debería hacer la consulta a la base de datos para obtener las notas del estudiante
+            // Esta es una simulación de la respuesta que se obtendría de la base de datos
+            const estudiantes = {
+                '819601120142086': {
+                    nombre: 'AGUILAR SURUBI',
+                    apellidos: 'DAYANE PRISCILA',
+                    notas: {
+                        1: [
+                            { materia: 'Matemáticas', nota: 90 },
+                            { materia: 'Lenguaje', nota: 85 },
+                            { materia: 'Ciencias', nota: 88 },
+                        ],
+                        2: [
+                            { materia: 'Matemáticas', nota: 92 },
+                            { materia: 'Lenguaje', nota: 88 },
+                            { materia: 'Ciencias', nota: 90 },
+                        ],
+                        3: [
+                            { materia: 'Matemáticas', nota: 94 },
+                            { materia: 'Lenguaje', nota: 91 },
+                            { materia: 'Ciencias', nota: 93 },
+                        ],
+                        anual: [
+                            { materia: 'Matemáticas', nota: 92 },  // Promedio anual
+                            { materia: 'Lenguaje', nota: 88 },    // Promedio anual
+                            { materia: 'Ciencias', nota: 90 },      // Promedio anual
+                        ]
+                    }
+                },
+                '819600962015326': {
+                    nombre: 'CATALINA',
+                    apellidos: 'ALGARAÑAZ LEIGUEZ',
+                    notas: {
+                        1: [
+                            { materia: 'Matemáticas', nota: 80 },
+                            { materia: 'Lenguaje', nota: 75 },
+                            { materia: 'Ciencias', nota: 82 },
+                        ],
+                        2: [
+                            { materia: 'Matemáticas', nota: 85 },
+                            { materia: 'Lenguaje', nota: 80 },
+                            { materia: 'Ciencias', nota: 88 },
+                        ],
+                        3: [
+                            { materia: 'Matemáticas', nota: 90 },
+                            { materia: 'Lenguaje', nota: 85 },
+                            { materia: 'Ciencias', nota: 92 },
+                        ],
+                        anual: [
+                            { materia: 'Matemáticas', nota: 85 },
+                            { materia: 'Lenguaje', nota: 80 },
+                            { materia: 'Ciencias', nota: 87 },
+                        ]
+                    }
+                },
+                '5195000120142734': {
+                    nombre: 'LUIS DEIVY',
+                    apellidos: 'BARRERO ROJAS',
+                    notas: {
+                        1: [
+                            { materia: 'Matemáticas', nota: 80 },
+                            { materia: 'Lenguaje', nota: 75 },
+                            { materia: 'Ciencias', nota: 82 },
+                        ],
+                        2: [
+                            { materia: 'Matemáticas', nota: 85 },
+                            { materia: 'Lenguaje', nota: 80 },
+                            { materia: 'Ciencias', nota: 88 },
+                        ],
+                        3: [
+                            { materia: 'Matemáticas', nota: 90 },
+                            { materia: 'Lenguaje', nota: 85 },
+                            { materia: 'Ciencias', nota: 92 },
+                        ],
+                        anual: [
+                            { materia: 'Matemáticas', nota: 85 },
+                            { materia: 'Lenguaje', nota: 80 },
+                            { materia: 'Ciencias', nota: 87 },
+                        ]
+                    }
+                }
+                
+                // Otros estudiantes registrados
+            };
+
+            mensajeError.textContent = ''; // Limpiar mensajes de error anteriores
+            resultadoNotas.innerHTML = '';
+
+            if (estudiantes[rudeEstudiante]) {
+                const estudiante = estudiantes[rudeEstudiante];
+                let html = `<h3>Nombre del Estudiante: ${estudiante.nombre} ${estudiante.apellidos}</h3><br>`;
+
+                if (trimestreSeleccionado === 'anual') {
+                    html += '<h3>Promedio Anual:</h3><ul>';
+                    estudiante.notas.anual.forEach(nota => {
+                        html += `<li>${nota.materia}: ${nota.nota}</li>`;
+                    });
+                    html += '</ul>';
+                } else {
+                    html += `<h3>Notas del ${trimestreSeleccionado} Trimestre:</h3><ul>`;
+                    estudiante.notas[trimestreSeleccionado].forEach(nota => {
+                        html += `<li>${nota.materia}: ${nota.nota}</li>`;
+                    });
+                    html += '</ul>';
+                }
+                resultadoNotas.innerHTML = html;
+
+            } else {
+                mensajeError.textContent = 'RUDE incorrecto. Por favor, inténtelo de nuevo.';
+            }
+        });
+
+        // Función para el botón de borrar
+        document.getElementById('boton-borrar').addEventListener('click', function() {
+            document.getElementById('rude-estudiante').value = ''; // Limpiar el campo de RUDE
+            document.getElementById('resultado-notas').innerHTML = ''; // Limpiar el resultado de la consulta
+            document.getElementById('mensaje-error').textContent = ''; // Limpiar el mensaje de error
+        });
+
+        // Función para manejar el clic en el botón de "Ver Fichas de Observación"
+        document.getElementById('ver-fichas-observacion').addEventListener('click', function() {
+            const resultadoFichas = document.getElementById('resultado-fichas');
+            const mensajeErrorFichas = document.getElementById('mensaje-error-fichas');
+            const carnetIdentidadInput = document.getElementById('carnet-identidad');
+
+
+            mensajeErrorFichas.textContent = ''; // Limpiar mensajes de error anteriores
+            resultadoFichas.innerHTML = ''; // Limpiar resultados anteriores
+
+            // Simulación de la lógica para obtener el carnet de identidad
+            const carnetIdentidad = carnetIdentidadInput.value;
+
+            if (carnetIdentidad && carnetIdentidad.trim() !== "") {
+                // Aquí se debería hacer la consulta a la base de datos para obtener las fichas de observación
+                // Esta es una simulación de la respuesta que se obtendría de la base de datos
+                const estudiantes = {
+                    '15934604': { nombre: 'JDAYANE PRISCILA', apellidos: 'AGUILAR SURUBI' },
+                    '16092003': { nombre: 'CATALINA', apellidos: 'ALGARAÑAZ LEIGUEZ' },
+                    '5195000120142734': { nombre: 'LUIS DEIVY', apellidos: 'BARRERO ROJAS' },
+                    // ... otros estudiantes
+                };
+
+                // Simulación de la lógica para buscar al estudiante por carnet de identidad
+                const estudianteEncontrado = estudiantes[carnetIdentidad];
+
+                if (estudianteEncontrado) {
+                    let html = `<h3>Fichas de Observación del estudiante: ${estudianteEncontrado.nombre} ${estudianteEncontrado.apellidos}</h3><table class="w-full">
+                                    <thead>
+                                        <tr>
+                                            <th class="border p-2">Fecha</th>
+                                            <th class="border p-2">Materia</th>
+                                            <th class="border p-2">Descripción</th>
+                                            <th class="border p-2">Nombre del Profesor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>`;
+                    // Simulación de datos de fichas de observación
+                    const fichas = [
+                        { fecha: '2024-05-20', materia: 'Matemáticas', descripcion: 'Buen desempeño en la resolución de problemas.', profesor: 'Carlos Rodríguez' },
+                        { fecha: '2024-05-22', materia: 'Lenguaje', descripcion: 'Excelente participación en clase.', profesor: 'Ana Martínez' },
+                    ];
+                    fichas.forEach(ficha => {
+                        html += `
+                            <tr>
+                                <td class="border p-2">${ficha.fecha}</td>
+                                <td class="border p-2">${ficha.materia}</td>
+                                <td class="border p-2">${ficha.descripcion}</td>
+                                <td class="border p-2">${ficha.profesor}</td>
+                            </tr>
+                        `;
+                    });
+                    html += `</tbody></table>`;
+                    resultadoFichas.innerHTML = html;
+                } else {
+                    mensajeErrorFichas.textContent = "No se encontraron fichas de observación para el carnet de identidad ingresado.";
+                }
+            } else {
+                mensajeErrorFichas.textContent = "Por favor, ingrese un número de carnet de identidad válido.";
+            }
+        });
+
+        // Función para borrar el resultado de la búsqueda al borrar el carnet de identidad
+        document.getElementById('carnet-identidad').addEventListener('input', function() {
+            if (this.value === "") {
+                document.getElementById('resultado-fichas').innerHTML = '';
+            }
+        });
+    </script>
+</body>
+</html>
